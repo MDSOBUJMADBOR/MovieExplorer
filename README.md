@@ -1,5 +1,7 @@
 # 🎬 MovieExplorer
 
+**🔗 Live Link:** https://globalmovieexplorer.netlify.app
+
 A responsive Movie Explorer application built with React. Browse movies, search by title, and view detailed information in an interactive modal — powered by the free [TVMaze API](https://www.tvmaze.com/api).
 
 ## ✨ Features
