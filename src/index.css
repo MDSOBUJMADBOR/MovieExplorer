@@ -2,10 +2,27 @@
 
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
   background-color: #09090b;
+  overflow-x: hidden;
+  min-height: 100dvh;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+input, button {
+  touch-action: manipulation;
+}
+
+/* Prevent long titles / URLs from breaking layout on small screens */
+* {
+  overflow-wrap: break-word;
 }
 
 /* thin dark scrollbar for modal */
