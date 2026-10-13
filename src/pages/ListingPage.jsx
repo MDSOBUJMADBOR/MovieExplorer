@@ -13,6 +13,7 @@ function ListingPage() {
   const [error, setError] = useState("");
   const [selected, setSelected] = useState(null);
 
+  
   const loadAll = useCallback(async () => {
     setLoading(true);
     setError("");
@@ -74,11 +75,11 @@ function ListingPage() {
 
   return (
     <div className="min-h-screen bg-zinc-950">
-      <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6">
-        <h1 className="text-center text-3xl font-extrabold text-white sm:text-4xl">
+      <div className="mx-auto w-full max-w-7xl px-4 py-6 sm:px-6 sm:py-8">
+        <h1 className="text-center text-2xl font-extrabold text-white min-[480px]:text-3xl sm:text-4xl">
           Browse <span className="text-red-500">Movies</span>
         </h1>
-        <p className="mt-2 text-center text-sm text-zinc-400">
+        <p className="mx-auto mt-2 max-w-xl break-words text-center text-xs text-zinc-400 sm:text-sm">
           {query.trim()
             ? `${shows.length} result${shows.length !== 1 ? "s" : ""} for "${query}"`
             : "All shows • Type to search by title"}
@@ -93,7 +94,7 @@ function ListingPage() {
             <p className="text-sm text-red-300">{error}</p>
             <button
               onClick={loadAll}
-              className="mt-2 rounded-lg bg-red-600 px-4 py-2 text-sm font-semibold text-white hover:bg-red-500"
+              className="mt-2 min-h-[44px] rounded-lg bg-red-600 px-4 py-2 text-sm font-semibold text-white hover:bg-red-500"
             >
               Retry
             </button>
@@ -101,7 +102,7 @@ function ListingPage() {
         )}
 
         {isBusy && shows.length === 0 ? (
-          <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          <div className="mt-6 grid grid-cols-1 gap-4 min-[480px]:grid-cols-2 sm:mt-8 md:grid-cols-3 sm:gap-5 lg:grid-cols-4">
             {Array.from({ length: 8 }).map((_, i) => (
               <div
                 key={i}
@@ -124,7 +125,7 @@ function ListingPage() {
             </p>
           </div>
         ) : (
-          <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          <div className="mt-6 grid grid-cols-1 gap-4 min-[480px]:grid-cols-2 sm:mt-8 md:grid-cols-3 sm:gap-5 lg:grid-cols-4 xl:grid-cols-4">
             {shows.map((show) => (
               <MovieCard key={show.id} show={show} onDetails={setSelected} />
             ))}
